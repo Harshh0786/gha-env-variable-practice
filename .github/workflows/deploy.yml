@@ -9,7 +9,7 @@ env:
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: oSNLeuv4BhwKZc0A@cluster0.edvf1un.mongodb.net
+      MONGODB_CLUSTER_ADDRESS: cluster0.edvf1un.mongodb.net
       MONGODB_USERNAME: harsh_db_user
       MONGODB_PASSWORD: oSNLeuv4BhwKZc0A
       PORT: 8080
@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:$PORT
+        run: npm start & npx wait-on http://127.0.0.1:${{ env.PORT }}
       - name: Run tests
         run: npm test
       - name: Output information
